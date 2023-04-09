@@ -2,6 +2,7 @@
   "name": "genshin-wish-pc-manual-aid",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jogerj.github.io/genshin-wish-pc-manual-aid",
   "dependencies": {
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
@@ -21,13 +22,16 @@
     "@types/react": "^18.0.33",
     "@types/react-bootstrap": "^0.32.32",
     "@types/react-dom": "^18.0.11",
+    "gh-pages": "^5.0.0",
     "jest-extended": "^3.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
