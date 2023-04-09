@@ -95,6 +95,8 @@ export default function App() {
                       readOnly
                       value={getPath()}
                     ></textarea>
+                  </div>
+                  <div>
                     <Button
                       onClick={() => {
                         navigator.clipboard.writeText(getPath());
@@ -132,6 +134,8 @@ export default function App() {
                   readOnly
                   value={url}
                 ></textarea>
+              </div>
+              <div>
                 <Button
                   onClick={() => {
                     navigator.clipboard.writeText(url);

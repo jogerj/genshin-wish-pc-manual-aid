@@ -1,7 +1,6 @@
 {
   "name": "genshin-wish-pc-manual-aid",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://jogerj.github.io/genshin-wish-pc-manual-aid",
   "dependencies": {
     "bootstrap": "^5.2.3",
@@ -50,5 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "license": "MIT"
 }

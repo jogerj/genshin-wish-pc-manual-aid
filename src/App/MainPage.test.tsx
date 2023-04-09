@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import MainPage from "./MainPage";
 
 describe("MainPage", () => {
