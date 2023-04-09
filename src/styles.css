@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.mono-textarea {
+  font-family: "Consolas", monospace;
+  font-size: 0.5em;
+  width: 100%;
+}
