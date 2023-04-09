@@ -48,7 +48,7 @@ export default function App() {
         <h1>How to grab Genshin Wish URL manually</h1>
         <h6>
           Source:{" "}
-          <a href="https://github.com/jogerj/" rel="noreferrer" target="_blank">
+          <a href="https://github.com/jogerj/genshin-wish-pc-manual-aid" rel="noreferrer" target="_blank">
             JogerJ
           </a>
         </h6>
