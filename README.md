@@ -1,2 +1,3 @@
-# genshin-wish-pc-manual-aid
-Created with CodeSandbox
+# genshin-wish-pc-manual-ai
+
+TBA
