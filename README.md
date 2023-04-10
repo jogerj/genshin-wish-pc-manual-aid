@@ -1,3 +1,3 @@
-# genshin-wish-pc-manual-ai
+# genshin-wish-pc-manual-aid
 
-TBA
+Follow instructions on [https://jogerj.github.io/genshin-wish-pc-manual-aid](https://jogerj.github.io/genshin-wish-pc-manual-aid)
