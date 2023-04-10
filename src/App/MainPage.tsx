@@ -6,25 +6,32 @@ import DropdownItem from "react-bootstrap/DropdownItem"
 
 import "./MainPage.css";
 
-export default function App() {
+enum UrlState {
+  INIT,
+  NOT_FOUND,
+  FOUND,
+}
+
+export default function MainPage() {
   const [server, setServer] = useState<string | undefined>(undefined);
+  const [urlState, setUrlState] = useState<UrlState>(UrlState.INIT);
   const [url, setUrl] = useState<string>("");
 
-  const handleChange = (changedFile: File[]) => {
-    let fr = new FileReader();
+  const regex = new RegExp("https.+?game_biz=hk4e_(global|cn)", "g");
+  const handleChange = (changedFile: File) => {
+    const fr = new FileReader();
     fr.onload = (e) => {
-      let regex = new RegExp("https.+?game_biz=hk4e_(global|cn)", "g");
-      let lastUrl = "";
       let matches: RegExpExecArray | null;
+      setUrlState(UrlState.NOT_FOUND);
       do {
         matches = regex.exec(e?.target?.result as string);
         if (matches !== null) {
-          lastUrl = matches[0];
+          setUrl(matches[0])
+          setUrlState(UrlState.FOUND);
         }
       } while (matches !== null);
-      setUrl(lastUrl);
     };
-    fr.readAsText(changedFile[0], "UTF-8");
+    fr.readAsText(changedFile, "UTF-8");
   };
   const gamePath: Map<string | undefined, string> = new Map([
     ["china", "\\Genshin Impact Game\\YuanShen_Data"],
@@ -33,6 +40,69 @@ export default function App() {
 
   const getPath: () => string = () =>
     gamePath.get(server?.toLowerCase()) + "\\webCaches\\Cache\\Cache_Data\\";
+
+  const renderTroubleshooting = () => {
+    return (
+      <details className="fs-5 w-auto p-2">
+        <summary>Troubleshooting</summary>
+        <ul>
+          <li>
+            <div>
+              Copy the file somewhere else if Genshin Impact is open.
+            </div>
+          </li>
+          <li>
+            <div>Otherwise close Genshin Impact.</div>
+          </li>
+          <li>
+            <div>
+              If it still doesn't work, close Genshin Impact, delete the{" "}
+              <code>Cache_Data</code> folder and start over.
+            </div>
+          </li>
+        </ul>
+      </details>
+    )
+  }
+
+  const renderSearchResult = () => {
+    switch (urlState) {
+      case UrlState.INIT:
+        return <div />;
+      case UrlState.NOT_FOUND:
+        return (
+          <div>
+            <div className="text-danger">URL not found!</div>
+          </div>
+        );
+      case UrlState.FOUND:
+        return (
+          <li>
+            <div>
+              <a href={url} rel="noreferrer" target="_blank">
+                Here is your link
+              </a>
+            </div>
+            <div>
+              <textarea
+                className="mono-textarea"
+                readOnly
+                value={url}
+              ></textarea>
+            </div>
+            <div>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(url);
+                }}
+              >
+                Click to copy link
+              </Button>
+            </div>
+          </li>
+        );
+    };
+  }
 
   return (
     <div className="App">
@@ -77,11 +147,11 @@ export default function App() {
               <li>
                 <div>
                   Go to the Genshin Impact's folder. <br />
-                  You can find this path in your game's launcher:
+                  You can find this path in your game's launcher.
                 </div>
                 <div>
                   <img
-                    alt="Installation location"
+                    alt=""
                     src="launcher-location.png"
                   />
                 </div>
@@ -112,63 +182,19 @@ export default function App() {
                   Drag <code>data_2</code> file to this drop zone below
                 </p>
                 <FileUploader
-                  multiple={true}
+                  multiple={false}
                   handleChange={handleChange}
                   name="file"
                 />
               </li>
+              {renderSearchResult()}
+              <div>{renderTroubleshooting()}</div>
             </>
           ) : (
             <div />
           )}
-          {url ? (
-            <li>
-              <div>
-                <a href={url} rel="noreferrer" target="_blank">
-                  Here is your link
-                </a>
-              </div>
-              <div>
-                <textarea
-                  className="mono-textarea"
-                  readOnly
-                  value={url}
-                ></textarea>
-              </div>
-              <div>
-                <Button
-                  onClick={() => {
-                    navigator.clipboard.writeText(url);
-                  }}
-                >
-                  Click to copy link
-                </Button>
-              </div>
-              <details className="fs-5 w-auto p-2">
-                <summary>Troubleshooting</summary>
-                <ul>
-                  <li>
-                    <div>
-                      Copy the file somewhere else if Genshin Impact is open.
-                    </div>
-                  </li>
-                  <li>
-                    <div>Otherwise close Genshin Impact.</div>
-                  </li>
-                  <li>
-                    <div>
-                      If it still doesn't work, close Genshin Impact, delete the{" "}
-                      <code>Cache_Data</code> folder and start over.
-                    </div>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          ) : (
-            <div />
-          )}
-        </ol>
-      </div>
-    </div>
+        </ol >
+      </div >
+    </div >
   );
 }
