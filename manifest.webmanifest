@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "genshin-wish-pc-manual-aid",
+  "name": "Genshin Wish Auto-Import - Manual",
   "icons": [
     {
       "src": "favicon.ico",
