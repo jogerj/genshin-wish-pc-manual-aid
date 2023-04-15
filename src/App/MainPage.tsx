@@ -17,7 +17,7 @@ export default function MainPage() {
   const [urlState, setUrlState] = useState<UrlState>(UrlState.INIT);
   const [url, setUrl] = useState<string>("");
 
-  const regex = new RegExp("https.+?game_biz=hk4e_(global|cn)", "g");
+  const regex = new RegExp("https.+getGachaLog.+game_biz=hk4e_(global|cn)", "g");
   const handleChange = (changedFile: File) => {
     const fr = new FileReader();
     fr.onload = (e) => {
