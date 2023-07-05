@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/genshin-wish-pc-manual-aid/static/css/main.03f56361.css",
-    "main.js": "/genshin-wish-pc-manual-aid/static/js/main.81f4623b.js",
+    "main.js": "/genshin-wish-pc-manual-aid/static/js/main.3a5aaf38.js",
     "static/js/787.82ddb90b.chunk.js": "/genshin-wish-pc-manual-aid/static/js/787.82ddb90b.chunk.js",
     "index.html": "/genshin-wish-pc-manual-aid/index.html",
     "main.03f56361.css.map": "/genshin-wish-pc-manual-aid/static/css/main.03f56361.css.map",
-    "main.81f4623b.js.map": "/genshin-wish-pc-manual-aid/static/js/main.81f4623b.js.map",
+    "main.3a5aaf38.js.map": "/genshin-wish-pc-manual-aid/static/js/main.3a5aaf38.js.map",
     "787.82ddb90b.chunk.js.map": "/genshin-wish-pc-manual-aid/static/js/787.82ddb90b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03f56361.css",
-    "static/js/main.81f4623b.js"
+    "static/js/main.3a5aaf38.js"
   ]
 }
