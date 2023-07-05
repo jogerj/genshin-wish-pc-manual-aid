@@ -39,7 +39,7 @@ export default function MainPage() {
   ]);
 
   const getPath: () => string = () =>
-    gamePath.get(server?.toLowerCase()) + "\\webCaches\\Cache\\Cache_Data\\";
+    gamePath.get(server?.toLowerCase()) + "\\webCaches\\2.13.0.1\\Cache\\Cache_Data\\";
 
   const renderTroubleshooting = () => {
     return (
