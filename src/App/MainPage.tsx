@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import { Dropdown, Button } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/DropdownItem"
-
+import DropdownItem from "react-bootstrap/DropdownItem";
 
 import "./MainPage.css";
 
@@ -17,7 +16,10 @@ export default function MainPage() {
   const [urlState, setUrlState] = useState<UrlState>(UrlState.INIT);
   const [url, setUrl] = useState<string>("");
 
-  const regex = new RegExp("https.+getGachaLog.+game_biz=hk4e_(global|cn)", "g");
+  const regex = new RegExp(
+    "https.+getGachaLog.+game_biz=hk4e_(global|cn)",
+    "g"
+  );
   const handleChange = (changedFile: File) => {
     const fr = new FileReader();
     fr.onload = (e) => {
@@ -26,7 +28,7 @@ export default function MainPage() {
       do {
         matches = regex.exec(e?.target?.result as string);
         if (matches !== null) {
-          setUrl(matches[0])
+          setUrl(matches[0]);
           setUrlState(UrlState.FOUND);
         }
       } while (matches !== null);
@@ -38,8 +40,11 @@ export default function MainPage() {
     ["global", "\\Genshin Impact Game\\GenshinImpact_Data"],
   ]);
 
+  const webCacheVersion = "2.15.0.0";
+
   const getPath: () => string = () =>
-    gamePath.get(server?.toLowerCase()) + "\\webCaches\\2.13.0.1\\Cache\\Cache_Data\\";
+    gamePath.get(server?.toLowerCase()) +
+    `\\webCaches\\${webCacheVersion}\\Cache\\Cache_Data\\`;
 
   const renderTroubleshooting = () => {
     return (
@@ -47,9 +52,7 @@ export default function MainPage() {
         <summary>Troubleshooting</summary>
         <ul>
           <li>
-            <div>
-              Copy the file somewhere else if Genshin Impact is open.
-            </div>
+            <div>Copy the file somewhere else if Genshin Impact is open.</div>
           </li>
           <li>
             <div>Otherwise close Genshin Impact.</div>
@@ -60,10 +63,19 @@ export default function MainPage() {
               <code>Cache_Data</code> folder and start over.
             </div>
           </li>
+          <li>
+            <div>
+              It has been known that Genshin Impact changed the version number{" "}
+              of the cache folder between versions.
+              <br />
+              The current known version number is:{" "}
+              <code>{webCacheVersion}</code>
+            </div>
+          </li>
         </ul>
       </details>
-    )
-  }
+    );
+  };
 
   const renderSearchResult = () => {
     switch (urlState) {
@@ -101,8 +113,8 @@ export default function MainPage() {
             </div>
           </li>
         );
-    };
-  }
+    }
+  };
 
   return (
     <div className="App">
@@ -118,7 +130,11 @@ export default function MainPage() {
         <h1>How to grab Genshin Wish URL manually</h1>
         <h6>
           Source:{" "}
-          <a href="https://github.com/jogerj/genshin-wish-pc-manual-aid" rel="noreferrer" target="_blank">
+          <a
+            href="https://github.com/jogerj/genshin-wish-pc-manual-aid"
+            rel="noreferrer"
+            target="_blank"
+          >
             JogerJ
           </a>
         </h6>
@@ -129,7 +145,7 @@ export default function MainPage() {
               <Dropdown
                 id="server-dropdown"
                 className="align-content-left"
-                onSelect={(e) => e ? setServer(e) : undefined}
+                onSelect={(e) => (e ? setServer(e) : undefined)}
               >
                 <Dropdown.Toggle id="server-dropdown-toggle">
                   {server ?? "Choose a server"}
@@ -150,10 +166,7 @@ export default function MainPage() {
                   You can find this path in your game's launcher.
                 </div>
                 <div>
-                  <img
-                    alt=""
-                    src="launcher-location.png"
-                  />
+                  <img alt="" src="launcher-location.png" />
                 </div>
               </li>
               <li>
@@ -193,8 +206,8 @@ export default function MainPage() {
           ) : (
             <div />
           )}
-        </ol >
-      </div >
-    </div >
+        </ol>
+      </div>
+    </div>
   );
 }
