@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/genshin-wish-pc-manual-aid/static/css/main.03f56361.css",
-    "main.js": "/genshin-wish-pc-manual-aid/static/js/main.3a5aaf38.js",
+    "main.css": "/genshin-wish-pc-manual-aid/static/css/main.0b04f53f.css",
+    "main.js": "/genshin-wish-pc-manual-aid/static/js/main.ff5c5384.js",
     "static/js/787.82ddb90b.chunk.js": "/genshin-wish-pc-manual-aid/static/js/787.82ddb90b.chunk.js",
     "index.html": "/genshin-wish-pc-manual-aid/index.html",
-    "main.03f56361.css.map": "/genshin-wish-pc-manual-aid/static/css/main.03f56361.css.map",
-    "main.3a5aaf38.js.map": "/genshin-wish-pc-manual-aid/static/js/main.3a5aaf38.js.map",
+    "main.0b04f53f.css.map": "/genshin-wish-pc-manual-aid/static/css/main.0b04f53f.css.map",
+    "main.ff5c5384.js.map": "/genshin-wish-pc-manual-aid/static/js/main.ff5c5384.js.map",
     "787.82ddb90b.chunk.js.map": "/genshin-wish-pc-manual-aid/static/js/787.82ddb90b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03f56361.css",
-    "static/js/main.3a5aaf38.js"
+    "static/css/main.0b04f53f.css",
+    "static/js/main.ff5c5384.js"
   ]
 }
