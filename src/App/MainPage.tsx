@@ -40,7 +40,7 @@ export default function MainPage() {
     ["global", "\\Genshin Impact Game\\GenshinImpact_Data"],
   ]);
 
-  const webCacheVersion = "2.15.0.0";
+  const webCacheVersion = "2.22.0.0";
 
   const getPath: () => string = () =>
     gamePath.get(server?.toLowerCase()) +
